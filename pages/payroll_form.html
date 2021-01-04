@@ -6,6 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/payroll_form.css">
     <title>Employee payroll form</title>
+
+    <script defer src="../js/new_Employee_PayrollForm.js"></script>
+    <script defer src="../js/EmployeePayrollData.js"></script>
 </head>
 <body>
     <!-- UC 1 -->
@@ -27,6 +30,7 @@
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" 
                        placeholder="Your name.." required>
+                <error-output class="text-error" for="text"></error-output>       
             </div>
 
              <!---- UC 3  ---->
@@ -56,8 +60,17 @@
         </div>
     </div>
 
-      <!---- UC 4  ---->
-      <div class="row-content">
+        <!---- UC 4  ---->
+        <div class="row-content">
+          <label class = "label text" for="gender">Gender</label>
+          <div>
+              <input type="radio" id="male" name="gender" value="male">
+              <label class="text" for="male">Male</label>
+              <input type="radio" id="female" name="gender" value="female">
+              <label class="text" for="female">Female</label>
+          </div>
+        </div>  
+        <div class="row-content">
         <label class="label text" for="department">Department</label>
         <div>
             <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
@@ -81,6 +94,7 @@
     <!--- UC 5 --->
     <div class="row-content">
         <label class="label text" for="startDate">Start Date</label>
+        <error-output class="text-error" for="text"></error-output>       
         <div>
             <select id="day" name="day">
                 <option value="1">1</option>
@@ -153,14 +167,14 @@ style="height: 80px"></textarea></div>
 </div> 
        </form>
 
-       <script>
+       <!-- <script>
            const salary = document.querySelector('#salary');
             const output = document.querySelector('.salary-output');
             output.textContent = salary.value;
             salary.addEventListener('input', function(){
             output.textContent = salary.value;
             });
-       </script>
+       </script> -->
     </div>
 </body>
 </html>
