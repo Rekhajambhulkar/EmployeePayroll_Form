@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const textError = document.querySelector('.text-error');
     name.addEventListener('input', function() {
         if(name.value.length == 0) {
-            texterror.textContent = "";
+            textError.textContent = "";
             return;
         }
         try {
@@ -27,9 +27,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const save = () => {
     try {
         let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     } catch (e) {
         return;
     }
+}
+
+function createAndUpdateStorage(employeePayrollData){
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if(employeePayrollList != undefined){
+        employeePayrollList.push(employeePayrollData);
+    }else{
+        employeePayrollList = [employeePayrollData];
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList"), JSON.stringify(employeePayrollList)
 }
 
 const createEmployeePayroll = () => {
@@ -69,3 +81,4 @@ const getInputElementValue = (id) => {
     let value = document.getElementById(id).value;
     return value;
 }
+
