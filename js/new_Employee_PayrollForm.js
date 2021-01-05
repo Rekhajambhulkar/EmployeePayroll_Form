@@ -82,3 +82,32 @@ const getInputElementValue = (id) => {
     return value;
 }
 
+const restForm = () => {
+    setValue('#name', '');
+    unsetSelectedValues('[name = profiel]');
+    unsetSelectedValues('[name=gender]');
+    unsetSelectedValues('[name=department]');
+    setValue('#salary', '');
+    setValue('#notes', '');
+    setValue('#day','1');
+    setValue('#month','January');
+    setValue('#year','2020');
+}
+
+const unsetSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectoreAll(propertyValue);
+    allItems.forEach(item => {
+        item.checked = false;
+    });
+}
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+
+}
