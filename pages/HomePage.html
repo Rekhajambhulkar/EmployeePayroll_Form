@@ -30,6 +30,32 @@
         <img src="../assets/emp.jpg" alt=""> Add User</a>    
             </div> <!--header-content-->
             <div class="table-main">
+                <table id="display" class="table">
+                    <!--UC 3-->
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Start Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td><img class="profile" alt="" src="../assets/e1.jpg"></td>
+                        <td>Rekha Jambhulkar</td>
+                        <td>Female</td>
+                        <td><div class='dept-label'>HR</div>
+                        <div class='dept-label'>Finance</div>
+                        </td>
+                        <td>300000</td>
+                        <td>1 Nov 2020</td>
+                        <td>
+                            <img id="1" onclick="remove(this)" alt="delete" src="../assets/dlt.jpg">
+                            <img id="1" alt="edit" onclick="update(this)" src="../assets/update1.jpg">
+                        </td>
+                    </tr>
+                </table>
             </div> <!--table-main-->
         </div><!--main-content-->
     </body>
