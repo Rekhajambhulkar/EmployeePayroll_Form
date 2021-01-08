@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ajax Services and Promise</title>
+    <style>
+        .body { margin: auto; }
+        div {
+            border: 1px solid black;
+            background-color: lightblue;
+            padding: 50px;
+            width: 80%;
+            font-size: xx-large;
+            margin-top: 50px;
+        }
+    </style>
+    <script src="../service/http_service.js"></script>
+</head>
+<body>
+    <h1>The Test Service Result</h1>
+    <div id="get_services" ></div>
+    <div id="delete_services" ></div>
+    <div id="post_services" ></div>
+    <script>
+    const getElen = document.querySelector("#get_services");
+    const getURL = "http://localhost:3000/EmployeePayrollDB/1";
+    makeServiceCall("GET", getURL, true)
+        .then(responseText => {
+            getElen.textContent = "Get User Data: " +responseText;
+    })
+        .catch(error => {
+            getElen.textContent = "GET Error Status: " +JSON.stringify(error);
+    });
+
+    const deleteElen = document.querySelector("#delete_services");
+    const deleteURL = "http://localhost:3000/EmployeePayrollDB/3";
+    makeServiceCall("DELETE", deleteURL, false)
+        .then(responseText => {
+            deleteElen.textContent = "Delete Data: " +responseText;
+    })
+    .catch(error => {
+        deleteElen.textContent = "DELETE Error Status: " +JSON.stringify(error);
+    });
+
+    const empPayrollData = 
+    {
+        _name: 'Amarpa shashanka keerthi kumar',
+        _gender: 'female',
+        _department: [
+            'Sales'
+        ],
+        _salary: '400000',
+        _startDate: '29 Oct 2019',
+        _note: '',
+        _profilePic: '../Assets/profile-images/Ellipse -1.png'
+    };
+
+    const postElen = document.querySelector("#post_services");
+    const postURL = "http://localhost:3000/EmployeePayrollDB/";
+    makeServiceCall("POST", postURL, true, empPayrollData)
+        .then(responseText => {
+            postElen.textContent ="New User Data: " +responseText;
+    })
+        .catch(error => {
+            postElen.textContent = "POST Error Status: " +JSON.stringify(error);
+    });
+    </script>
+</body>
+</html>
