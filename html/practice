@@ -45,3 +45,25 @@ const setSelectedValues = (properyValue, value) => {
         item.checked == true;
     });
 }
+---------------------------------------
+
+const save = (event) => {
+    event.preventDefault();
+    event.stopPropogation();
+    try{
+        setEmployeePayrollObject();
+        createAndUpdateStorage();
+        resetForm();
+        window.location.replace(site_properties.home_page);
+    } catch(e){
+        return;
+    }
+}
+
+const setEmployeePayrollObject = () => {
+    employeePayrollObj._name = getInputValueById('#name');
+    employeePayrollObj._profilePic = getSelectedValues('[name=profile])
+}
+
+-------------------------------------------------------------------------
+
