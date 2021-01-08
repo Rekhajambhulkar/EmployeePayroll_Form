@@ -3,7 +3,7 @@ const stringifyDate = (date) => {
     const newDate = !date ? "undefined" :
                      new Date(Date.parse(date)).toLocaleDateString('en-GB', options);
     return newDate;
-} 
+}
 
 const update = (node) => {
     let empPayrollData = empPayrollList.find(empData => empData._id == node.id);
