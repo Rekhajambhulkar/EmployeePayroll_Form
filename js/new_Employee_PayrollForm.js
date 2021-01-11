@@ -52,6 +52,7 @@ const save = (event) => {
 }
 
 const setEmployeePayrollObject = () => {
+    if(!isUpdate) employeePayrollObj.id = createNewEmployeeId();
     employeePayrollObj._name = getInputValueById('#name');
     employeePayrollObj._profilePic = getSelectedValues('[name=profile]').pop();
     employeePayrollObj._gender = getSelectedValues('[name=gender]').pop();
@@ -69,13 +70,13 @@ const createAndUpdateStorage = () => {
         let empPayrollData = employeePayrollList.
                             find(empData => empData.id == employeePayrollObj.id);
         if (!empPayrollData) {
-        employeePayrollList.push(createEmployeePayrollData());
+        employeePayrollList.push(employeePayrollObj.id);
     } else{
         const index = employeePayrollList
                         .map(empData => empData.id)
                         .indexOf(empPayrollData.id);
         employeePayrollList.splice(index, 1,
-                                    createEmployeePayrollData(empPayrollData.id));
+                                    employeePayrollObj);
         }
     } else {
         employeePayrollList = [createEmployeePayrollData()]
